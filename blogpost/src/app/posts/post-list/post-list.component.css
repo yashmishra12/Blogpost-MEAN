@@ -1,0 +1,10 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+:host {
+  display: block;
+  margin-top: 16px;
+}
+
+.info-text {
+  text-align: center;
+}

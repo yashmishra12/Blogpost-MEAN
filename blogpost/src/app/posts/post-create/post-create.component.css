@@ -1,0 +1,9 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+mat-card {
+  margin-top: 15px;
+}
+
+mat-form-field, textarea {
+  width: 100%;
+}
