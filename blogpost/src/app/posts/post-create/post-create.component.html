@@ -1,8 +1,18 @@
 <mat-card>
-  <mat-form-field>
-    <textarea cols="50" rows="10" matInput [(ngModel)]="newPost"></textarea>
-</mat-form-field>
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
 
-<button (click)="onAddPost()" mat-raised-button color="primary">Save Post</button>
+    <mat-form-field>
+      <input type="text" matInput ngModel name="title" placeholder="Title" required #title="ngModel">
+      <mat-error *ngIf="title.invalid">Please enter Blog title</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea cols="50" rows="10" matInput ngModel name="content" placeholder="Content" required #content="ngModel"></textarea>
+      <mat-error *ngIf="content.invalid">Please enter Blog title</mat-error>
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary" [disabled]="postForm.invalid">Save Post</button>
+
+  </form>
 </mat-card>
 

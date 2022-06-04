@@ -1,7 +1,6 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 main {
-  margin: 15pt;
+  margin: 20pt auto;
   width: 80%;
-  margin: auto;
 }
