@@ -7,7 +7,8 @@
     </mat-form-field>
 
     <mat-form-field>
-      <textarea cols="50" rows="10" matInput ngModel name="content" placeholder="Content" required #content="ngModel"></textarea>
+      <textarea cols="50" rows="10" matInput ngModel name="content" placeholder="Content" required #content="ngModel">
+      </textarea>
       <mat-error *ngIf="content.invalid">Please enter Blog title</mat-error>
     </mat-form-field>
 

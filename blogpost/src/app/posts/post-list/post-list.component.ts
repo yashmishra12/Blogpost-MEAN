@@ -9,8 +9,6 @@ import { PostsService } from '../posts.service';
   styleUrls: ['./post-list.component.css']
 })
 
-
-
 export class PostListComponent implements OnInit, OnDestroy {
 
   constructor(public postService: PostsService) { }
@@ -26,5 +24,4 @@ export class PostListComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.postSub.unsubscribe();
   }
-
 }
