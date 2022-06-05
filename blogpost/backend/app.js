@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Post = require('./models/post')
 const mongoose = require('mongoose');
-const { createShorthandPropertyAssignment } = require('typescript');
 require('dotenv').config()
 
 const app = express();
@@ -29,14 +28,12 @@ app.post("/api/posts", (req, res)=> {
       postId: createdPost._id
     });
   });
-
-
+  
 });
 
 
 app.get("/api/posts", (req, res) => {
   Post.find().then( docs => {
-
       res.status(200).json({
         message: "Fetched Documents Successfully.",
         posts: docs
