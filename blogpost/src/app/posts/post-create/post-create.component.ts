@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Post } from '../post.model';
 import { PostsService } from '../posts.service';
@@ -16,9 +16,16 @@ export class PostCreateComponent implements OnInit {
   post: Post;
   isLoading = false;
 
+  form: FormGroup;
+
   constructor(public postService: PostsService, public route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.form = new FormGroup( {
+      title: new FormControl(null, Validators.required),
+      content: new FormControl(null, Validators.required)
+    });
+
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
         if(paramMap.has('postID')) {
             this.mode = 'edit';
@@ -26,7 +33,8 @@ export class PostCreateComponent implements OnInit {
             this.isLoading = true
 
             this.postService.getPost(this.postID).subscribe( (postData) => {
-              this.post = {id: postData._id, title: postData.title, content: postData.content}
+              this.post = {id: postData._id, title: postData.title, content: postData.content};
+              this.form.setValue({'title': this.post.title, 'content':this.post.content})
               this.isLoading = false
             });
         }else {
@@ -34,19 +42,22 @@ export class PostCreateComponent implements OnInit {
           this.postID = '';
         }
     } );
+
+    console.log(this.form)
   }
 
-  onSavePost(form: NgForm) {
-    if (form.invalid) { return }
+  onSavePost() {
+    if (this.form.invalid) { return }
 
     this.isLoading=true;
 
     if(this.mode === 'create') {
-      this.postService.addPost(form.value.title, form.value.content);
+      this.postService.addPost(this.form.value.title, this.form.value.content);
     } else {
-      this.postService.updatePost(this.postID, form.value.title, form.value.content)
+      this.postService.updatePost(this.postID, this.form.value.title, this.form.value.content)
     }
-    form.resetForm();
+
+    this.form.reset();
   }
 
 }

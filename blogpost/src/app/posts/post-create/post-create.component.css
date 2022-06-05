@@ -11,3 +11,17 @@ mat-form-field, textarea {
 mat-spinner {
   margin: auto;
 }
+
+#imageUpload {
+  float: right;
+}
+
+input[type="file"] {
+  visibility: hidden;
+}
+
+.needMargin {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
