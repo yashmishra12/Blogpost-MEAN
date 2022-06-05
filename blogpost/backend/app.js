@@ -1,7 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const Post = require('./models/post')
+const mongoose = require('mongoose');
+const { createShorthandPropertyAssignment } = require('typescript');
+require('dotenv').config()
 
 const app = express();
+
+mongoose.connect(process.env.MONGODB_URL)
+  .then( () => {console.log("Connected to MongoDB DataBase")})
+  .catch( () => {console.log("Connection failed")});
 
 app.use(bodyParser.json());
 
@@ -12,26 +20,35 @@ app.use((req, res, next)=> {
   next();
 })
 
-app.post("/api/posts", (req, res, next)=> {
-  const post = req.body;
-  console.log(post);
-  res.status(201).json({
-    message: "Post Saved"
+app.post("/api/posts", (req, res)=> {
+  const post = new Post({title: req.body.title, content: req.body.content});
+
+  post.save().then( (createdPost) => {
+    res.status(201).json({
+      message: "Post Saved",
+      postId: createdPost._id
+    });
   });
+
+
 });
 
 
-app.get("/api/posts", (req, res, next) => {
-  const posts = [
-    {id: 'ad123asdcvwegt1', title:'The Elephant Man', content: 'Lorem ipsum dolor sit amet, consectetur'},
-    {id: '5fsgsvvwttwegt8', title:'Teenage Mutant Ninja Turtles', content: 'Lorem ipsum dolor sit amet, consectetur'}
-  ]
+app.get("/api/posts", (req, res) => {
+  Post.find().then( docs => {
 
-  res.status(200).json({
-    message: "Sending",
-    posts: posts
+      res.status(200).json({
+        message: "Fetched Documents Successfully.",
+        posts: docs
+      })
+  });
+});
+
+app.delete("/api/posts/:id", (req, res, next) => {
+  Post.deleteOne({_id: req.params.id}).then( (result) => {
+    console.log(result);
+    res.status(200).json({message: "Post Deleted"});
   })
-
 });
 
 module.exports = app;
