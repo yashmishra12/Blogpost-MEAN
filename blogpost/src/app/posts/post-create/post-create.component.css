@@ -1,4 +1,4 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
 
 mat-card {
   margin-top: 15px;
@@ -6,4 +6,8 @@ mat-card {
 
 mat-form-field, textarea {
   width: 100%;
+}
+
+mat-spinner {
+  margin: auto;
 }
