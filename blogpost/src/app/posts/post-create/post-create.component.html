@@ -13,8 +13,6 @@
         <mat-error *ngIf = "form.get('content')" >Please enter Blog Content</mat-error>
       </mat-form-field>
 
-
-
      <div class="needMargin">
       <button type="submit" mat-raised-button color="primary" [disabled]= "form.touched && !form.valid">Save Post</button>
       <input type="file" #filePicker (change)="onImageUploaded($event)" accept="image/*">

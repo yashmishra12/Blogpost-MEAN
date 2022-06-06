@@ -26,10 +26,6 @@ input[type="file"] {
 }
 
 .image-preview img {
-  /* max-width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block; */
   height: 100%;
   width: 100%;
   object-fit: contain;
