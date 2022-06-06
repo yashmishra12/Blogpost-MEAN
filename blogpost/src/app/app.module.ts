@@ -16,6 +16,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatIconModule} from '@angular/material/icon';
 import { AppRoutingModule } from 'app-routing.module';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { AppRoutingModule } from 'app-routing.module';
     HttpClientModule,
     AppRoutingModule,
     MatProgressSpinnerModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
