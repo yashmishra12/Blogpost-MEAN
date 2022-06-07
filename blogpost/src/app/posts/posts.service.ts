@@ -19,7 +19,11 @@ export class PostsService {
     const queryParams = `?pageSize=${postsPerPage}&page=${currentPage}`;
 
     this.http.get<{message: string, posts: any, maxPosts: number}>(this.uri + queryParams)
-    .pipe(map( postData => { return { posts: postData.posts.map( post => { return { id: post._id, ...post}}),
+    .pipe(map( postData => { return { posts: postData.posts.map( post => { return { title: post.title,
+                                                                                content: post.content,
+                                                                                id: post._id,
+                                                                                imagePath: post.imagePath,
+                                                                                creator: post.creator}}),
                                       maxPosts: postData.maxPosts
                                     }
                            }
@@ -51,7 +55,7 @@ export class PostsService {
   }
 
   getPost(id: string) {
-    return this.http.get<{_id: string, title: string, content: string, imagePath: string}>(this.uri+id);
+    return this.http.get<{_id: string, title: string, content: string, imagePath: string, creator: string}>(this.uri+id);
   }
 
   updatePost(id: string, title: string, content: string, image: File | string) {
@@ -65,7 +69,7 @@ export class PostsService {
       postData.append("image", image, title);
     }
     else {
-        postData = {id: id, title: title, content: content, imagePath: image};
+        postData = {id: id, title: title, content: content, imagePath: image, creator: null};
     }
 
     this.http.put(this.uri+id, postData).subscribe( (response) => {
