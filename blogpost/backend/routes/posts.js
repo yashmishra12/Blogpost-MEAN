@@ -44,9 +44,10 @@ router.post("", checkAuth ,multer({storage}).single("image") ,(req, res, next)=>
               ...createdPost
             }
     });
-  });
+  })
 
 });
+
 
 
 router.get("", (req, res) => {

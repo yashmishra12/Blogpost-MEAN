@@ -37,10 +37,8 @@ router.post("/login", (req, res, next) => {
   }).then( result => {
 
     if(!result ) { return res.status(401).json({message: "Authorization failed"}) }
-    
     const token = jwt.sign({email: fetchedUser.email, userId: fetchedUser._id}, process.env.JWT_SECRET, {expiresIn: "5h"});
-
-    res.status(200).json({token})
+    res.status(200).json({token, expiresIn: 18000})
 
   }).catch(
     error => { return res.status(401).json({message: "Authorization failed catch block"})}
