@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { LoginComponent } from "src/app/auth/login/login/login.component";
-import { SignupComponent } from "src/app/auth/signup/signup/signup.component";
+import { LoginComponent } from "src/app/auth/login/login.component";
+import { SignupComponent } from "src/app/auth/signup/signup.component";
 import { PostCreateComponent } from "src/app/posts/post-create/post-create.component";
 import { PostListComponent } from "src/app/posts/post-list/post-list.component";
 

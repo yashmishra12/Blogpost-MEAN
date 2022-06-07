@@ -17,8 +17,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatIconModule} from '@angular/material/icon';
 import { AppRoutingModule } from 'app-routing.module';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { LoginComponent } from './auth/login/login/login.component';
-import { SignupComponent } from './auth/signup/signup/signup.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 
 
@@ -29,7 +29,7 @@ import { SignupComponent } from './auth/signup/signup/signup.component';
     HeaderComponent,
     PostListComponent,
     LoginComponent,
-    SignupComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
