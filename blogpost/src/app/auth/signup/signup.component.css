@@ -6,3 +6,7 @@ mat-form-field {
 mat-spinner {
   margin: auto;
 }
+
+.breathe {
+  margin-top: 15pt;
+}

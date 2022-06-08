@@ -6,10 +6,10 @@
       <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
     </mat-form-field>
     <mat-form-field>
-      <input type="password" name="password" ngModel matInput placeholder="Password" #passwordInput="ngModel" required autocomplete="on">
-      <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
+      <input type="password" name="password" ngModel matInput placeholder="Password" #passwordInput="ngModel" required autocomplete="on" [minlength]="6">
+      <mat-error *ngIf="passwordInput.invalid">Please enter a valid password of minimum length 6.</mat-error>
     </mat-form-field>
-    <button mat-raised-button color="accent" type="submit" *ngIf="!isLoading">Signup</button>
+    <button class="breathe" mat-raised-button color="accent" type="submit" *ngIf= "!isLoading">Signup</button>
   </form>
 </mat-card>
 
