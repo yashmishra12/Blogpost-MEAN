@@ -7,8 +7,12 @@ MEAN Stack Application for Photo Blogging.
 Users can signup and post their favourite photos for the world to see after logging in. They can edit and delete their own posts as well. 
 
 ## Overview
-<img src="pic/viewPost.png" width="300">
-<img src="pic/viewPostList.png" width="300">
+<table>
+  <tr>
+    <td><img src="pic/viewPost.png" width="500"></td>
+    <td><img src="pic/viewPostList.png" width="500"></td>
+  </tr>
+</table>
 
 
 
