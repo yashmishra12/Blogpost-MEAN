@@ -31,7 +31,7 @@ export class PostCreateComponent implements OnInit, OnDestroy {
       authStatus => {
         this.isLoading = false;
       });
-      
+
     this.form = new FormGroup( {
       title: new FormControl(null, Validators.required),
       content: new FormControl(null, Validators.required),
