@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiURL: "http://localhost:3000/api"
+  apiURL: "http://54.165.160.177:3000/api"
 };
