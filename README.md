@@ -4,8 +4,8 @@
 MEAN Stack Application for Photo Blogging.
 
 ## Deployed At
-You can use the application [here 🦚](http://54.165.160.177:3000/photoblog/). 
 Deployed using AWS EC2 instance (t2.micro) running pm2. 
+No more available as it regularly came very close to crossing the free-tier mark. 
 
 ## Description
 Users can signup and post their favourite photos for the world to see after logging in. They can edit and delete their own posts as well. 
